@@ -62,7 +62,7 @@ def sentiment():
         )
 
         conn = get_db_connection()
-        query = conn.execute("SELECT text FROM message LIMIT 10").fetchall()
+        query = conn.execute("SELECT * FROM message ORDER BY created DESC LIMIT 10").fetchall()
         conn.close()
 
         messages = [m["text"] for m in query]
